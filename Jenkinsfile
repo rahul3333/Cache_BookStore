@@ -5,7 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-                script {
+//                 script {
                     // Get the Maven tool.
                     // ** NOTE: This 'M3' Maven tool must be configured
                     // **       in the global configuration.
@@ -19,22 +19,22 @@ pipeline {
 //                     // get the current development version 
 //                     developmentArtifactVersion = "${pom.version}-${targetVersion}"
 //                     print pom.version
-                }
+//                 }
             }
         }
         stage('Test') {
             steps {
                 echo 'Testing..'
-                script {
-                    def mvnHome = tool 'Maven 3.3.9'
-                    if (isUnix()) {
-                        // just to trigger the integration test without unit testing
-                        sh "'${mvnHome}/bin/mvn'  verify -Dunit-tests.skip=true"
-                    } else {
-                        bat(/"${mvnHome}\bin\mvn" verify -Dunit-tests.skip=true/)
-                    }
+//                 script {
+//                     def mvnHome = tool 'Maven 3.3.9'
+//                     if (isUnix()) {
+//                         // just to trigger the integration test without unit testing
+//                         sh "'${mvnHome}/bin/mvn'  verify -Dunit-tests.skip=true"
+//                     } else {
+//                         bat(/"${mvnHome}\bin\mvn" verify -Dunit-tests.skip=true/)
+//                     }
 
-                }
+//                 }
             }
         }
         stage('Sonar Scan') {
