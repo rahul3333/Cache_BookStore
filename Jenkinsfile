@@ -40,6 +40,7 @@ pipeline {
         stage('Sonar Scan') {
             // Run the sonar scan
             steps {
+                echo 'Sonar Build..'
 //                 script {
 //                     def mvnHome = tool 'Maven 3.3.9'
 //                     withSonarQubeEnv {
